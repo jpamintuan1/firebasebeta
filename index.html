@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Firebase Web Quickstart</title>
+
+<link rel="stylesheet" href="main.css">
+   
+    <link href="justified-nav.css" rel="stylesheet">
+
+</head>
+<body>
+
+<h1 id= "bigOne"></h1>
+<h1>Fuck You Bitch</h1>
+
+<input type ="text" name="name" id="uname" placeholder ="user Name">
+<input type ="email" name="email" id="uemail" placeholder ="user email">
+<button onclick="pushFirebase()">PUSH Data</button>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAb90yTx_rZPpKhd-jF0tQNqncsomHnqp8",
+    authDomain: "rentfinds-22659.firebaseapp.com",
+    databaseURL: "https://rentfinds-22659.firebaseio.com",
+    projectId: "rentfinds-22659",
+    storageBucket: "rentfinds-22659.appspot.com",
+    messagingSenderId: "29885036537"
+  };
+  firebase.initializeApp(config);
+
+function pushFirebase ()  {
+
+  const fb = firebase.database().ref()
+
+  //get field values
+
+  user_name = document.getElementById('uname').value
+  user_email = document.getElementById('uemail').value
+  data = {user_name,user_email}
+
+  //push database
+  fb.child('users/').push(data)
+}
+
+
+
+
+
+</script>
+<script src ="main.js"></script>
+</body>
+</html>

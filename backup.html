@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Firebase Web Quickstart</title>
+
+<link rel="stylesheet" href="main.css">
+   
+    <link href="justified-nav.css" rel="stylesheet">
+
+</head>
+<body>
+
+<h1 id= "bigOne"></h1>
+<h1>Fuck You Bitch</h1>
+
+<input type ="text" name="name" id="uname" placeholder ="user Name">
+<input type ="email" name="email" id="uemail" placeholder ="user email">
+<button>PUSH Data</button>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAb90yTx_rZPpKhd-jF0tQNqncsomHnqp8",
+    authDomain: "rentfinds-22659.firebaseapp.com",
+    databaseURL: "https://rentfinds-22659.firebaseio.com",
+    projectId: "rentfinds-22659",
+    storageBucket: "rentfinds-22659.appspot.com",
+    messagingSenderId: "29885036537"
+  };
+  firebase.initializeApp(config);
+
+var bigOne = document.getElementById('bigOne');
+var dbRef = firebase.database().ref().child('text');
+dbRef.on ('value', snap => bigOne.innerText = snap.val());
+
+</script>
+<script src ="main.js"></script>
+</body>
+</html>
